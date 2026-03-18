@@ -1,0 +1,38 @@
+{
+  "name": "sahih-muslim",
+  "version": "1.0.0",
+  "description": "Complete Sahih Muslim hadith collection. Tiny package (~3KB), data from CDN. CLI + Node.js + React/Vue/Vite.",
+  "type": "module",
+  "main":   "./index.cjs",
+  "module": "./index.browser.js",
+  "types":  "./index.d.ts",
+  "exports": {
+    ".": {
+      "types":   "./index.d.ts",
+      "browser": "./index.browser.js",
+      "require": "./index.cjs",
+      "import":  "./index.node.js"
+    },
+    "./chapters/*": "./chapters/*"
+  },
+  "bin": { "muslim": "./bin/index.js" },
+  "scripts": {
+    "build":          "node build.mjs",
+    "prepublishOnly": "node build.mjs"
+  },
+  "keywords": ["islam","hadith","muslim","sahih","prophet","sunnah","json","arabic","english","quran","react","hook"],
+  "author": "muhammadsaadamin",
+  "license": "AGPL-3.0",
+  "repository": { "type": "git", "url": "https://github.com/SENODROOM/sahih-muslim.git" },
+  "files": [
+    "index.js",
+    "index.browser.js",
+    "index.cjs",
+    "index.node.js",
+    "index.d.ts",
+    "bin/index.js",
+    "bin/muslim.json",
+    "chapters/"
+  ],
+  "engines": { "node": ">=14.0.0" }
+}
