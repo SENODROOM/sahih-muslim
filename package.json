@@ -1,6 +1,6 @@
 {
   "name": "sahih-muslim",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Complete Sahih Muslim hadith collection. Tiny package (~3KB), data from CDN. CLI + Node.js + React/Vue/Vite.",
   "type": "module",
   "main": "./index.cjs",
