@@ -20,15 +20,15 @@
 
 ## 📊 Package Statistics
 
-| Metric | Value | Description |
-|--------|-------|-------------|
-| 📚 **Total Hadiths** | 7,563 | Complete Sahih Muslim collection |
-| 📝 **Chapters** | 4,000+ | Detailed chapter organization |
-| 🗣️ **Narrators** | 1,000+ | Clean narrator names |
-| 📦 **Package Size** | ~3KB | Core package — data loads from CDN |
-| 🔧 **Dependencies** | 0 | Zero external dependencies |
-| 🌐 **Bilingual** | ✅ | Full Arabic text + English translations |
-| 📘 **TypeScript** | ✅ | Built-in type definitions |
+| Metric               | Value  | Description                             |
+| -------------------- | ------ | --------------------------------------- |
+| 📚 **Total Hadiths** | 7459   | Complete Sahih Muslim collection        |
+| 📝 **Chapters**      | 56     | Detailed chapter organization           |
+| 🗣️ **Narrators**     | 1,000+ | Clean narrator names                    |
+| 📦 **Package Size**  | ~3KB   | Core package — data loads from CDN      |
+| 🔧 **Dependencies**  | 0      | Zero external dependencies              |
+| 🌐 **Bilingual**     | ✅     | Full Arabic text + English translations |
+| 📘 **TypeScript**    | ✅     | Built-in type definitions               |
 
 ---
 
@@ -90,7 +90,7 @@ muslim --react
 **Step 2** — use the hook anywhere:
 
 ```jsx
-import { useMuslim } from '../hooks/useMuslim';
+import { useMuslim } from "../hooks/useMuslim";
 
 function HadithOfTheDay() {
   const muslim = useMuslim();
@@ -99,7 +99,9 @@ function HadithOfTheDay() {
   const hadith = muslim.getRandom();
   return (
     <div>
-      <p><strong>{hadith.english.narrator}</strong></p>
+      <p>
+        <strong>{hadith.english.narrator}</strong>
+      </p>
       <p>{hadith.english.text}</p>
     </div>
   );
@@ -117,9 +119,9 @@ function HadithSearch() {
     <div>
       <input
         placeholder="Search hadiths..."
-        onChange={e => setResults(muslim.search(e.target.value))}
+        onChange={(e) => setResults(muslim.search(e.target.value))}
       />
-      {results.map(h => (
+      {results.map((h) => (
         <p key={h.id}>{h.english.text}</p>
       ))}
     </div>
@@ -134,22 +136,22 @@ function HadithSearch() {
 ### CommonJS
 
 ```javascript
-const muslim = require('sahih-muslim');
+const muslim = require("sahih-muslim");
 
-console.log(muslim[0]);                     // First hadith (index 0)
-console.log(muslim.get(1));                 // Hadith with id: 1
-console.log(muslim.search('prayer'));       // Search
-console.log(muslim.getByChapter(1));        // All hadiths in chapter 1
-console.log(muslim.getRandom());            // Random hadith
-console.log(muslim.length);                 // 7563
-console.log(muslim.metadata);               // Book metadata
-console.log(muslim.chapters);               // All chapters
+console.log(muslim[0]); // First hadith (index 0)
+console.log(muslim.get(1)); // Hadith with id: 1
+console.log(muslim.search("prayer")); // Search
+console.log(muslim.getByChapter(1)); // All hadiths in chapter 1
+console.log(muslim.getRandom()); // Random hadith
+console.log(muslim.length); // 7563
+console.log(muslim.metadata); // Book metadata
+console.log(muslim.chapters); // All chapters
 ```
 
 ### ESM
 
 ```javascript
-import muslim from 'sahih-muslim';
+import muslim from "sahih-muslim";
 
 const hadith = muslim.get(23);
 console.log(hadith.english.narrator);
@@ -160,18 +162,20 @@ console.log(hadith.arabic);
 ### Express.js
 
 ```javascript
-import express from 'express';
-import muslim from 'sahih-muslim';
+import express from "express";
+import muslim from "sahih-muslim";
 
 const app = express();
 
-app.get('/api/hadith/random',  (req, res) => res.json(muslim.getRandom()));
-app.get('/api/hadith/:id',     (req, res) => {
+app.get("/api/hadith/random", (req, res) => res.json(muslim.getRandom()));
+app.get("/api/hadith/:id", (req, res) => {
   const h = muslim.get(parseInt(req.params.id));
-  if (!h) return res.status(404).json({ error: 'Not found' });
+  if (!h) return res.status(404).json({ error: "Not found" });
   res.json(h);
 });
-app.get('/api/search', (req, res) => res.json(muslim.search(req.query.q || '')));
+app.get("/api/search", (req, res) =>
+  res.json(muslim.search(req.query.q || "")),
+);
 
 app.listen(3000);
 ```
@@ -182,20 +186,20 @@ app.listen(3000);
 
 ### Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `length` | `number` | Total hadiths |
+| Property   | Type     | Description                      |
+| ---------- | -------- | -------------------------------- |
+| `length`   | `number` | Total hadiths                    |
 | `metadata` | `object` | Collection title and author info |
-| `chapters` | `array` | All chapter objects |
+| `chapters` | `array`  | All chapter objects              |
 
 ### Methods
 
-| Method | Parameters | Returns | Description |
-|--------|------------|---------|-------------|
-| `get(id)` | `number` | `Hadith` | Hadith by ID |
-| `getByChapter(id)` | `number` | `Hadith[]` | All hadiths in a chapter |
-| `search(query)` | `string` | `Hadith[]` | Full-text search |
-| `getRandom()` | — | `Hadith` | Random hadith |
+| Method             | Parameters | Returns    | Description              |
+| ------------------ | ---------- | ---------- | ------------------------ |
+| `get(id)`          | `number`   | `Hadith`   | Hadith by ID             |
+| `getByChapter(id)` | `number`   | `Hadith[]` | All hadiths in a chapter |
+| `search(query)`    | `string`   | `Hadith[]` | Full-text search         |
+| `getRandom()`      | —          | `Hadith`   | Random hadith            |
 
 All native array methods also work: `find`, `filter`, `map`, `forEach`, `slice`, index access.
 
