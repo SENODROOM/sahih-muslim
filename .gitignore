@@ -12,13 +12,6 @@ build/
 .venv/
 venv/
 
-# Data — generated files
-data/chapters/
-data/muslim.json.gz
-
-# Keep data/muslim.json tracked (source of truth)
-!data/muslim.json
-
 # General
 .DS_Store
 Thumbs.db
