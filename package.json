@@ -1,6 +1,6 @@
 {
   "name": "sahih-muslim",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Complete Sahih Muslim. Offline-first, zero dependencies. CLI + Node + React/Vue/Vite.",
   "type": "module",
   "main": "./src/index.cjs",
@@ -8,10 +8,10 @@
   "types": "./types/index.d.ts",
   "exports": {
     ".": {
-      "types":   "./types/index.d.ts",
+      "types": "./types/index.d.ts",
       "browser": "./src/index.browser.js",
       "require": "./src/index.cjs",
-      "import":  "./src/index.node.js"
+      "import": "./src/index.node.js"
     },
     "./data/chapters/*": "./data/chapters/*"
   },
@@ -19,12 +19,22 @@
     "muslim": "bin/index.js"
   },
   "scripts": {
-    "build":          "node scripts/build.mjs",
+    "build": "node scripts/build.mjs",
     "prepublishOnly": "node scripts/build.mjs"
   },
   "keywords": [
-    "islam", "hadith", "muslim", "sahih", "prophet",
-    "sunnah", "json", "arabic", "english", "quran", "react", "hook"
+    "islam",
+    "hadith",
+    "muslim",
+    "sahih",
+    "prophet",
+    "sunnah",
+    "json",
+    "arabic",
+    "english",
+    "quran",
+    "react",
+    "hook"
   ],
   "author": "muhammadsaadamin",
   "license": "AGPL-3.0",
@@ -32,7 +42,9 @@
     "type": "git",
     "url": "git+https://github.com/SENODROOM/sahih-muslim.git"
   },
-  "bugs": { "url": "https://github.com/SENODROOM/sahih-muslim/issues" },
+  "bugs": {
+    "url": "https://github.com/SENODROOM/sahih-muslim/issues"
+  },
   "homepage": "https://github.com/SENODROOM/sahih-muslim#readme",
   "files": [
     "src/",
