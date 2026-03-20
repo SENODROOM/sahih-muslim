@@ -29,8 +29,9 @@ from typing import Callable, Dict, Iterator, List, Optional, Union
 
 _THIS_DIR       = Path(__file__).parent
 _REPO_ROOT      = _THIS_DIR.parent.parent
-_SHARED_JSON    = _REPO_ROOT / "data" / "muslim.json.gz"
-_SHARED_JSON_FB = _REPO_ROOT / "data" / "muslim.json"
+_INSTALLED_DATA = _THIS_DIR / "data" / "muslim.json.gz"   # inside installed wheel
+_SHARED_JSON    = _REPO_ROOT / "data" / "muslim.json.gz"  # repo root (dev mode)
+_SHARED_JSON_FB = _REPO_ROOT / "data" / "muslim.json"     # uncompressed fallback
 
 _cache: Dict[str, "_Store"] = {}
 _lock  = threading.Lock()
@@ -148,7 +149,8 @@ class Muslim:
 
 def _resolve_cache_key(data_path) -> str:
     if data_path is not None: return str(Path(data_path).resolve())
-    if _SHARED_JSON.exists() or _SHARED_JSON_FB.exists(): return "__shared__"
+    if _INSTALLED_DATA.exists() or _SHARED_JSON.exists() or _SHARED_JSON_FB.exists():
+        return "__shared__"
     return "__cdn__"
 
 
@@ -159,9 +161,10 @@ def clear_cache(data_path=None) -> None:
 
 
 def _load(data_path=None) -> _Store:
-    if data_path is not None: return _load_from_file(Path(data_path))
-    if _SHARED_JSON.exists():    return _load_from_file(_SHARED_JSON)
-    if _SHARED_JSON_FB.exists(): return _load_from_file(_SHARED_JSON_FB)
+    if data_path is not None:        return _load_from_file(Path(data_path))
+    if _INSTALLED_DATA.exists():     return _load_from_file(_INSTALLED_DATA)
+    if _SHARED_JSON.exists():        return _load_from_file(_SHARED_JSON)
+    if _SHARED_JSON_FB.exists():     return _load_from_file(_SHARED_JSON_FB)
     return _load_from_cdn()
 
 

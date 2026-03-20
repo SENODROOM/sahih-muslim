@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse, sys, textwrap, time
 from .muslim import Muslim
 
-VERSION = "1.0.1"
+VERSION = "1.1.1"
 RESET="[0m";BOLD="[1m";DIM="[2m";GREEN="[32m";YELLOW="[33m"
 CYAN="[36m";MAGENTA="[35m";BLUE="[34m";RED="[31m";GRAY="[90m"
 def _c(col,t): return f"{col}{t}{RESET}"

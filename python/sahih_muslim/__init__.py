@@ -12,4 +12,4 @@ muslim.getByChapter(1)
 from .muslim import Muslim, Hadith, Chapter, Metadata, clear_cache
 
 __all__     = ["Muslim", "Hadith", "Chapter", "Metadata", "clear_cache"]
-__version__ = "1.0.1"
+__version__ = "1.1.1"
