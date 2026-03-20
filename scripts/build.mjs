@@ -129,4 +129,12 @@ const browserSrc = [
 fs.writeFileSync(path.join(ROOT, 'src', 'index.browser.js'), browserSrc, 'utf8');
 console.log('✓ Written src/index.browser.js');
 console.log('');
+
+// ── Step 5: Copy .gz into python/sahih_muslim/data/ ──────────────────────────
+// This makes Poetry include it in the wheel when running python -m build
+const pyDataDir = path.join(ROOT, 'python', 'sahih_muslim', 'data');
+fs.mkdirSync(pyDataDir, { recursive: true });
+fs.copyFileSync(gzPath, path.join(pyDataDir, 'muslim.json.gz'));
+console.log('✓ Copied muslim.json.gz → python/sahih_muslim/data/');
+console.log('');
 console.log('Build complete!');

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sahih-muslim"
-version = "1.1.1"
+version = "1.1.2"
 description = "Complete Sahih Muslim — 7,563 hadiths with full Arabic text and English translations. Offline-first, zero dependencies. CLI + Python library."
 authors = ["muhammadsaadamin"]
 license = "AGPL-3.0"
@@ -23,7 +23,7 @@ classifiers = [
 ]
 packages = [{include = "sahih_muslim", from = "python"}]
 include = [
-    {path = "data/muslim.json.gz", format = ["sdist", "wheel"]},
+    {path = "python/sahih_muslim/data/muslim.json.gz", format = ["sdist", "wheel"]},
 ]
 
 [tool.poetry.dependencies]
