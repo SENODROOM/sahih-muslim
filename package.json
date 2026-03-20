@@ -1,40 +1,30 @@
 {
   "name": "sahih-muslim",
   "version": "1.0.1",
-  "description": "Complete Sahih Muslim hadith collection. Tiny package (~3KB), data from CDN. CLI + Node.js + React/Vue/Vite.",
+  "description": "Complete Sahih Muslim. Offline-first, zero dependencies. CLI + Node + React/Vue/Vite.",
   "type": "module",
-  "main": "./index.cjs",
-  "module": "./index.browser.js",
-  "types": "./index.d.ts",
+  "main": "./src/index.cjs",
+  "module": "./src/index.browser.js",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "browser": "./index.browser.js",
-      "require": "./index.cjs",
-      "import": "./index.node.js"
+      "types":   "./types/index.d.ts",
+      "browser": "./src/index.browser.js",
+      "require": "./src/index.cjs",
+      "import":  "./src/index.node.js"
     },
-    "./chapters/*": "./chapters/*"
+    "./data/chapters/*": "./data/chapters/*"
   },
   "bin": {
     "muslim": "bin/index.js"
   },
   "scripts": {
-    "build": "node build.mjs",
-    "prepublishOnly": "node build.mjs"
+    "build":          "node scripts/build.mjs",
+    "prepublishOnly": "node scripts/build.mjs"
   },
   "keywords": [
-    "islam",
-    "hadith",
-    "muslim",
-    "sahih",
-    "prophet",
-    "sunnah",
-    "json",
-    "arabic",
-    "english",
-    "quran",
-    "react",
-    "hook"
+    "islam", "hadith", "muslim", "sahih", "prophet",
+    "sunnah", "json", "arabic", "english", "quran", "react", "hook"
   ],
   "author": "muhammadsaadamin",
   "license": "AGPL-3.0",
@@ -42,21 +32,15 @@
     "type": "git",
     "url": "git+https://github.com/SENODROOM/sahih-muslim.git"
   },
+  "bugs": { "url": "https://github.com/SENODROOM/sahih-muslim/issues" },
+  "homepage": "https://github.com/SENODROOM/sahih-muslim#readme",
   "files": [
-    "index.js",
-    "index.browser.js",
-    "index.cjs",
-    "index.node.js",
-    "index.d.ts",
+    "src/",
+    "types/",
     "bin/index.js",
-    "bin/muslim.json",
-    "chapters/"
+    "data/muslim.json.gz"
   ],
   "engines": {
-    "node": ">=14.0.0"
-  },
-  "bugs": {
-    "url": "https://github.com/SENODROOM/sahih-muslim/issues"
-  },
-  "homepage": "https://github.com/SENODROOM/sahih-muslim#readme"
+    "node": ">=18.0.0"
+  }
 }

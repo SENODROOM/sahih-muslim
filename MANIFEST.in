@@ -1,0 +1,27 @@
+# MANIFEST.in — controls what goes into the Python sdist
+
+include data/muslim.json.gz
+exclude data/muslim.json
+prune data/chapters
+
+recursive-include python *.py
+
+include README.md
+include CHANGELOG.md
+include pyproject.toml
+
+exclude package.json
+exclude package-lock.json
+exclude .npmignore
+exclude .gitignore
+prune src
+prune types
+prune scripts
+prune bin
+prune examples/node-commonjs
+prune examples/node-esm
+prune examples/react
+prune examples/express
+prune node_modules
+prune .github
+prune tests/js

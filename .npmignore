@@ -1,5 +1,35 @@
-build.mjs
-package-lock.json
+# Python package
+python/
+*.py
+pyproject.toml
+MANIFEST.in
+
+# Python build artefacts
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Data — raw json excluded, only .gz ships
+data/muslim.json
+data/chapters/
+
+# Dev / CI
 .git/
+.github/
 .gitignore
-LICENSE
+*.log
+.DS_Store
+.env
+
+# Build inputs
+scripts/
+package-lock.json
+CHANGELOG.md
+CONTRIBUTING.md
+docs/
+tests/
+examples/flask/

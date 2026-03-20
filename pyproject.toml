@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "sahih-muslim"
+version = "1.0.1"
+description = "Complete Sahih Muslim — 7,563 hadiths with full Arabic text and English translations. Offline-first, zero dependencies. CLI + Python library."
+authors = ["muhammadsaadamin"]
+license = "AGPL-3.0"
+readme = "README.md"
+homepage = "https://github.com/SENODROOM/sahih-muslim"
+repository = "https://github.com/SENODROOM/sahih-muslim"
+keywords = ["islam", "hadith", "muslim", "sahih", "prophet", "sunnah", "arabic", "english", "quran"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Religion",
+]
+packages = [{include = "sahih_muslim", from = "python"}]
+include = [
+    "data/muslim.json.gz",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.scripts]
+muslim = "sahih_muslim.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
