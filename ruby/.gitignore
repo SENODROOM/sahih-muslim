@@ -1,0 +1,42 @@
+# Ruby gem artifacts
+*.gem
+/
+/pkg/
+/.bundle/
+/vendor/bundle/
+*.rbc
+
+# Ruby environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Test coverage reports
+coverage/
+.simplecov
+
+# RSpec
+.rspec_status
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
